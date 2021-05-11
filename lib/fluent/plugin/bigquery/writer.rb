@@ -154,6 +154,7 @@ module Fluent
           end
         end
 
+        #memo: execution expire はここで起きる
         res = client.insert_job(
           project,
           configuration,
@@ -170,6 +171,7 @@ module Fluent
           return JobReference.new(chunk_id, chunk_id_hex, project, dataset, table_id, job_id)
         end
 
+        #XXX: execution expired
         raise Fluent::BigQuery::Error.wrap(e)
       end
 

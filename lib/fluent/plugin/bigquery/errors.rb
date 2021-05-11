@@ -19,7 +19,7 @@ module Fluent
 
         # @param e [Google::Apis::Error]
         def retryable_error?(e)
-          e.is_a?(Google::Apis::ServerError) && RETRYABLE_STATUS_CODE.include?(e.status_code)
+          (e.is_a?(Google::Apis::ServerError) && RETRYABLE_STATUS_CODE.include?(e.status_code)) #|| e.is_a?(Google::Apis::TransmissionError)
         end
 
         def retryable_error_reason?(reason)
