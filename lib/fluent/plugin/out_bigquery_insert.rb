@@ -63,6 +63,7 @@ module Fluent
 
       # for Fluent::Plugin::Output#implement? method
       def format(tag, time, record)
+        return if record.nil?
         super
       end
 
